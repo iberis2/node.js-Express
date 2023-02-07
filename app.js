@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+app.use(express.json())
+
 const members = require("./members");
 
 app.get("/api/members", (req, res) => {
@@ -22,6 +24,12 @@ app.get("/api/members/:id", (req, res) => {
     res.status(404).send({ message: `There's no such member` });
   }
 });
+
+app.post('/api/members', (req, res)=>{
+  const newMember = req.body;
+  members.push(newMember);
+  res.send(newMember);
+})
 
 app.listen(3000, () => {
   console.log("Server is listening...");
