@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 
-app.use(express.json())
+let members = require("./members");
 
-const members = require("./members");
+app.use(express.json())
 
 app.get("/api/members", (req, res) => {
   const { team } = req.query;
@@ -21,7 +21,7 @@ app.get("/api/members/:id", (req, res) => {
   if (member) {
     res.status(201).send(member);
   } else {
-    res.status(404).send({ message: `There's no such member` });
+    res.status(404).send({ message: `There's no such member with the id` });
   }
 });
 
