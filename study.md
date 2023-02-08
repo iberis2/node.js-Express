@@ -14,8 +14,9 @@ npm install 시 아무 설정도 안하면, \
 **dependencies 필드에 있던 패키지들만 node_modules 디렉토리에 재설치** \
 (4) 실제 서비스를 위해 코드 실행(npm start 등 실행)
 
-`npm install` **`nodemon`** `--save-dev` : 수정할 때마다 서버를 끄고 다시 킬 필요없이 수정 후 새로 저장할때마다 자동으로 서버 재시작 \
-package.json 안 script 프로퍼티 값인 객체 안에 명령어와 실행할 내용을 프로퍼티로 전달하면 `npm + run + 명령어`로 해당 내용을 실행할 수 있다. \
+`npm install` **`nodemon`** `--save-dev` : 수정할 때마다 서버를 끄고 다시 킬 필요없이 수정 후 새로 저장할때마다 자동으로 서버 재시작할 수 있다. \
+`npx nodemon 실행파일.js` 로 실행한다.\
+package.json 안 script 프로퍼티 값인 객체 안에 명령어와 실행할 내용을 프로퍼티로 전달하면 `npm + run + 명령어`로도 해당 내용을 실행할 수 있다. \
 지정어 **start**, **test** 같은 명령어는 run 없이 `npm + 명령어`로도 사용할 수 있다.
 
 ```json
