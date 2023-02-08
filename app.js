@@ -25,11 +25,10 @@ app.get("/api/members/:id", (req, res) => {
   }
 });
 
-app.post("/api/members/", (req, res) => {
-  // const newMember = req.body;
-  // members.push(newMember);
-  // res.send(newMember);
-  console.log(req.body);
+app.post("/api/members", (req, res) => {
+  const newMember = req.body;
+  members.push(newMember);
+  res.status(201).send(newMember);
 });
 
 app.put("/api/members/:id", (req, res) => {
@@ -57,6 +56,6 @@ app.delete("/api/members/:id", (req, res) => {
   }
 });
 
-app.listen(3000, () => {
+app.listen(3003, () => {
   console.log("Server is listening...");
 });
