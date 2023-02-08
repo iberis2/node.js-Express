@@ -3,7 +3,7 @@ const app = express();
 
 let members = require("./members");
 
-app.use(express.json())
+app.use(express.json()); // 추가된 미들웨어
 
 app.get("/api/members", (req, res) => {
   const { team } = req.query;
@@ -25,11 +25,37 @@ app.get("/api/members/:id", (req, res) => {
   }
 });
 
-app.post('/api/members', (req, res)=>{
-  const newMember = req.body;
-  members.push(newMember);
-  res.send(newMember);
-})
+app.post("/api/members/", (req, res) => {
+  // const newMember = req.body;
+  // members.push(newMember);
+  // res.send(newMember);
+  console.log(req.body);
+});
+
+app.put("/api/members/:id", (req, res) => {
+  const { id } = req.params;
+  const newInfo = req.body;
+  const member = members.find((m) => m.id === Number(id));
+  if (member) {
+    for (prop in newInfo) {
+      member[prop] = newInfo[prop];
+    }
+    res.send(member);
+  } else {
+    res.status(404).send({ message: "There is no member with the id!" });
+  }
+});
+
+app.delete("/api/members/:id", (req, res) => {
+  const { id } = req.params;
+  const membersCount = members.length;
+  members = members.filter((member) => member.id !== Number(id));
+  if (members.length < membersCount) {
+    res.send({ message: "Deleted" });
+  } else {
+    res.status(404).send({ message: "There is no member with the id!" });
+  }
+});
 
 app.listen(3000, () => {
   console.log("Server is listening...");

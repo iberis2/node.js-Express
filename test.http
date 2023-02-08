@@ -2,6 +2,27 @@ GET http://localhost:3000/api/members
 
 ###
 
+DELETE http://localhost:3000/api/members/3
+
+###
+
+PUT http://localhost:3000/api/members/1
+Content-Type: application/json
+
+  {
+  "id": 1,
+  "name": "Alex",
+  "team": "engineering",
+  "position": "IOS Developer",
+  "emailAddress": "alex@google.com",
+  "phoneNumber": "010-xxxx-xxxx",
+  "admissionDate": "2018/12/10",
+  "birthday": "1994/11/08",
+  "profileImage": "profile1.png"
+  }
+
+  ###
+
 POST http://localhost:3000/api/members
 Content-Type: application/json
 
@@ -9,10 +30,11 @@ Content-Type: application/json
     "id": 11,
     "name": "Zake",
     "team": "engineering",
-    "position": "Android Developer",
-    "emailAddress": "Zake@google.com",
+    "position": "IOS Developer",
+    "emailAddress": "zake@google.com",
     "phoneNumber": "010-xxxx-xxxx",
-    "admissionDate": "2021/12/10",
-    "birthday": "1995/09/08",
+    "admissionDate": "2018/12/10",
+    "birthday": "1994/11/08",
     "profileImage": "profile11.png"
   }
+
