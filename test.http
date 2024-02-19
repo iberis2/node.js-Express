@@ -1,0 +1,31 @@
+GET http://localhost:3000/api/members
+
+###
+GET http://localhost:3000/api/members/11
+
+###
+POST http://localhost:3000/api/members
+Content-Type: application/json
+
+{
+  "name": "Kally Chan",
+  "email": "Kally@example.com",
+  "team": "marketing",
+  "position": "marketeting manager",
+  "phoneNumber": "250-467-7890",
+  "birthday": "1995/03/01",
+  "admissionDate": "2023/10/01",
+  "profileImage": "profile6.png"
+}
+
+###
+PUT http://localhost:3000/api/members/1
+Content-Type: application/json
+
+{
+  "position": "ISO Engineer",
+  "phoneNumber": "010-3982-7890"
+}
+
+###
+DELETE http://localhost:3000/api/members/9
